@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rahma — A Private Universe</title>
+<style>
+:root{--bg:#050509;--soft:#d8b9c8;--muted:#aaa1a8;--line:#ffffff18}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#f8f4f6;font-family:Arial,sans-serif;overflow:hidden}
+body.ready{overflow:auto}.grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.055;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:4px 4px}
+.vignette{position:fixed;inset:0;z-index:40;pointer-events:none;background:radial-gradient(circle,transparent 42%,#000b 100%)}
+.letterbox:before,.letterbox:after{content:"";position:fixed;left:0;right:0;height:6vh;background:#000;z-index:45;pointer-events:none}.letterbox:before{top:0}.letterbox:after{bottom:0}
+#intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:#020204;transition:1.4s cubic-bezier(.7,0,.2,1)}
+.introbox{text-align:center;width:min(90%,650px);position:relative}.orb{width:90px;height:90px;margin:auto;border:1px solid #ffffff2a;border-radius:50%;position:relative;animation:pulse 3s infinite}.orb:after{content:"♥";position:absolute;inset:0;display:grid;place-items:center;font-size:28px;color:#d7a9bd;text-shadow:0 0 30px #eabed4}
+@keyframes pulse{50%{transform:scale(1.08);box-shadow:0 0 80px #c68aa52a}}
+.micro,.eyebrow{font-size:10px;letter-spacing:5px;color:#8d858b;text-transform:uppercase}.introbox h1{font:400 clamp(70px,18vw,155px)/.9 Georgia,serif;margin:30px 0 20px}.introbox p{color:#aaa;line-height:1.8;font-size:13px}
+.lock{display:flex;justify-content:center;gap:8px;margin-top:28px}.lock input{width:170px;padding:15px;background:#09090d;border:1px solid #39343a;color:white;border-radius:4px;text-align:center;font-size:18px;letter-spacing:8px;outline:none}.enter,.close{background:#ffffff08;color:#eee;border:1px solid #48434a;border-radius:99px;padding:12px 20px;cursor:pointer;transition:.3s}.enter:hover,.close:hover{background:#fff;color:#111}.hint{height:20px;margin-top:13px;color:#777;font-size:10px;letter-spacing:2px}.error{color:#e0aebe!important}.shake{animation:shake .35s}@keyframes shake{25%{transform:translateX(-7px)}50%{transform:translateX(7px)}75%{transform:translateX(-5px)}}
+
+#app{opacity:0;transition:1.5s}section{min-height:100svh;display:grid;place-items:center;padding:90px 22px;position:relative;overflow:hidden}
+.content{width:min(920px,100%);text-align:center;position:relative;z-index:4}.hero{background:radial-gradient(circle at 50% 40%,#c48ca522,transparent 38%)}
+.stars,.stars:before{position:absolute;inset:0;content:"";background-image:radial-gradient(#fff 1px,transparent 1px);background-size:83px 83px;opacity:.18}.stars:before{background-size:137px 137px;opacity:.1;transform:translate(20px,30px)}
+.hero h2{font:400 clamp(70px,18vw,180px)/.85 Georgia,serif;margin:32px 0}.body{max-width:720px;margin:auto;color:#aaa;line-height:2;font-size:14px}.quote{font:400 clamp(36px,7vw,72px)/1.08 Georgia,serif;margin:30px auto;max-width:900px}
+.reveal{opacity:0;transform:translateY(35px) scale(.98);transition:1.1s cubic-bezier(.2,.7,.2,1)}.reveal.show{opacity:1;transform:none}
+.scene-photo{min-height:115svh;background:#020204}.scene-photo .photo-wrap{width:min(560px,82vw);height:min(68svh,700px);position:relative;margin:35px auto 25px;overflow:hidden;border-radius:24px;box-shadow:0 30px 100px #000}
+.scene-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.04);transform:scale(1.04);transition:transform 8s cubic-bezier(.2,.7,.2,1),filter 2s}.scene-photo .show img{transform:scale(1);filter:saturate(1) contrast(1)}
+.photo-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,#0008)}
+.caption{font:400 26px Georgia,serif;margin:10px 0}.tiny{font-size:10px;letter-spacing:3px;color:#777;text-transform:uppercase}
+.memory{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:35px}.memory button{min-height:190px;border:1px solid var(--line);border-radius:22px;background:#ffffff06;color:#eee;padding:25px;cursor:pointer;text-align:left;transition:.45s}.memory button:hover{transform:translateY(-8px) rotate(-1deg);border-color:#c89bad66;background:#fff0}.memory strong{display:block;font:400 28px Georgia,serif;margin-bottom:10px}.memory span{color:#858087;font-size:12px;line-height:1.7}
+.final{background:radial-gradient(circle at 50% 50%,#9d5f7b22,transparent 35%)}.final .quote{max-width:760px}
+#hearts{position:fixed;inset:0;z-index:60;pointer-events:none;overflow:hidden}.heart{position:absolute;bottom:-30px;color:#e9b6ca;font-size:14px;animation:floatUp var(--d) linear forwards;filter:drop-shadow(0 0 8px #e9b6ca55)}@keyframes floatUp{to{transform:translate(var(--x),-110vh) rotate(360deg);opacity:0}}
+#tapHeart{position:fixed;z-index:70;bottom:22px;left:50%;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;border:1px solid #ffffff22;background:#08080cdd;color:#e5b6c8;cursor:pointer;backdrop-filter:blur(10px);font-size:19px}
+.progress{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:70;display:grid;gap:10px}.dot{width:5px;height:5px;border-radius:50%;background:#ffffff45;cursor:pointer;transition:.3s}.dot.active{background:#edc1d3;box-shadow:0 0 12px #edc1d3}
+.music{position:fixed;left:18px;bottom:20px;z-index:70;display:none}.music button,.music select{background:#09090cdd;color:#eee;border:1px solid #38343b;border-radius:99px;padding:9px 13px}
+.modal{position:fixed;inset:0;z-index:90;display:none;place-items:center;background:#000d;backdrop-filter:blur(14px);padding:20px}.modal.open{display:grid}.modalbox{max-width:570px;background:#0b0a0e;border:1px solid #39343b;border-radius:25px;padding:42px 28px;text-align:center;box-shadow:0 30px 100px #000}.modalbox h3{font:400 44px Georgia,serif;margin:0 0 15px}.modalbox p{color:#bbb;line-height:1.9;font-size:14px}
+@media(max-width:700px){.memory{grid-template-columns:1fr}.memory button{min-height:130px}.progress{right:10px}.scene-photo .photo-wrap{width:84vw;height:62svh}.letterbox:before,.letterbox:after{height:3vh}}
+</style>
+</head>
+<body>
+<div class="grain"></div><div class="vignette"></div><div class="letterbox"></div><div id="hearts"></div>
+<div id="intro"><div class="introbox"><div class="orb"></div><div class="micro" style="margin-top:25px">A private universe · only for Rahma</div><h1>Rahma</h1><p>Not a gallery. Not a message.<br>A little journey made slowly, one scene at a time.</p><div class="lock"><input id="pass" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••"><button class="enter" id="unlock">ENTER</button></div><div class="hint" id="hint">A four-digit secret</div></div></div>
+
+<div id="app">
+<section class="hero" id="s1"><div class="stars"></div><div class="content reveal"><div class="eyebrow">Scene 01 · Begin</div><h2>For Rahma.</h2><p class="body">Take your time. Nothing here needs to be rushed. Scroll gently and let every scene arrive when it is meant to.<br><br><em>“For the moments that made me smile… and the person who made them worth remembering.”</em></p></div></section>
+
+<section id="s2"><div class="content reveal"><div class="eyebrow">Scene 02 · A quiet place</div><div class="quote">“You don't have to be strong every minute of every day.”</div><p class="body">If the day is heavy, breathe. If your heart is tired, rest. You are allowed to have quiet moments.</p></div></section>
+
+<section class="scene-photo" id="s3"><div class="content reveal"><div class="eyebrow">Scene 03 · The smile</div><div class="photo-wrap"><img src="assets/rahma-01.jpg" alt="Rahma smiling"></div><div class="caption">Some smiles do not need an introduction.</div><div class="tiny">a little light · held in one frame</div></div></section>
+
+<section class="scene-photo" id="s4"><div class="content reveal"><div class="eyebrow">Scene 04 · A gentle soul</div><div class="photo-wrap"><img src="assets/rahma-04.jpg" alt="A quiet memory"></div><div class="caption">There is a kind of beauty that feels like coming home.</div><div class="tiny">softness · simplicity · you</div></div></section>
+
+<section class="scene-photo" id="s5"><div class="content reveal"><div class="eyebrow">Scene 05 · Eyes that speak</div><div class="photo-wrap"><img src="assets/rahma-05.jpg" alt="A quiet portrait"></div><div class="caption">Some eyes say more than a thousand carefully chosen words.</div><div class="tiny">a quiet look · a lasting memory</div></div></section>
+
+<section class="scene-photo" id="s6"><div class="content reveal"><div class="eyebrow">Scene 06 · Wrapped in light</div><div class="photo-wrap"><img src="assets/rahma-06.jpg" alt="A peaceful portrait"></div><div class="caption">May the gentleness in your heart always find its way back to you.</div><div class="tiny">peace · modesty · grace</div></div></section>
+
+<section class="scene-photo" id="s7"><div class="content reveal"><div class="eyebrow">Scene 07 · The little moments</div><div class="photo-wrap"><img src="assets/rahma-07.jpg" alt="A collection of happy moments"></div><div class="caption">The little moments become the memories we keep closest.</div><div class="tiny">four smiles · one beautiful chapter</div></div></section>
+
+<section id="s8"><div class="content reveal"><div class="eyebrow">Scene 08 · Three little doors</div><div class="quote" style="font-size:clamp(34px,6vw,58px)">Choose a feeling.</div><div class="memory"><button data-key="tired"><strong>When you're tired</strong><span>A small letter for a heavy day.</span></button><button data-key="sad"><strong>When you're sad</strong><span>For the quiet moments nobody sees.</span></button><button data-key="alone"><strong>When you feel alone</strong><span>A reminder that your presence matters.</span></button></div></div></section>
+
+<section class="scene-photo" id="s9"><div class="content reveal"><div class="eyebrow">Scene 09 · Another moment</div><div class="photo-wrap"><img src="assets/rahma-02.jpg" alt="A memory"></div><div class="caption">Not every beautiful thing needs an explanation.</div><div class="tiny">another memory · still one story</div></div></section>
+
+<section id="s10"><div class="content reveal"><div class="eyebrow">Scene 10 · Keep breathing</div><div class="quote">“May Allah put sakinah in your heart.”</div><p class="body">May He ease what is difficult, protect you from what exhausts you, and give you many reasons to smile.<br><br>May every chapter ahead carry more sakinah than worry, more mercy than hardship, and more beautiful surprises than you expect.</p></div></section>
+
+<section class="scene-photo" id="s11"><div class="content reveal"><div class="eyebrow">Scene 11 · The last picture</div><div class="photo-wrap"><img src="assets/rahma-03.jpg" alt="A memory"></div><div class="caption">And then, one last quiet moment.</div><div class="tiny">another memory · no rush</div></div></section>
+
+<section class="final" id="s12"><div class="content reveal"><div class="eyebrow">Scene 12 · For you</div><div class="quote">“Whatever today looked like, you made it here.”</div><p class="body">Rest when you need to. Smile when you can. May Allah fill your heart with peace, protect your heart, and make your days lighter.</p><br><button class="close" id="secretBtn">Open the final message ♥</button></div></section>
+</div>
+
+<div class="progress" id="progress"></div><button id="tapHeart" aria-label="Send hearts">♥</button>
+<div class="music" id="music"><select id="track"><option value="0">Arousat Al Noor</option><option value="1">Zawjati</option></select><button id="play">▶</button></div>
+<div class="modal" id="modal"><div class="modalbox"><h3 id="modalTitle"></h3><p id="modalText"></p><button class="close" id="close">Close gently</button></div></div>
+<audio id="audio" preload="auto"></audio>
+
+<script>
+const PASSWORD="2005",intro=document.getElementById('intro'),app=document.getElementById('app'),pass=document.getElementById('pass'),hint=document.getElementById('hint'),audio=document.getElementById('audio'),play=document.getElementById('play'),music=document.getElementById('music'),track=document.getElementById('track');
+const tracks=['assets/arousat-alnoor.mp3','assets/zawjati.mp3'];let current=0;
+function unlock(){if(pass.value.trim()!==PASSWORD){pass.value='';hint.textContent="That isn't the secret. Try again.";hint.classList.add('error');pass.classList.remove('shake');void pass.offsetWidth;pass.classList.add('shake');return}
+intro.style.opacity='0';intro.style.visibility='hidden';app.style.opacity='1';document.body.classList.add('ready');music.style.display='block';startHearts(8);setTimeout(()=>loadTrack(0,true),900)}
+document.getElementById('unlock').onclick=unlock;pass.onkeydown=e=>{if(e.key==='Enter')unlock()};
+function loadTrack(i,auto=false){current=i;audio.src=tracks[i];audio.load();if(auto)audio.play().then(()=>play.textContent='Ⅱ').catch(()=>play.textContent='▶')}
+play.onclick=()=>{if(audio.paused){audio.play().then(()=>play.textContent='Ⅱ')}else{audio.pause();play.textContent='▶'}};track.onchange=e=>loadTrack(+e.target.value,true);audio.onended=()=>loadTrack((current+1)%tracks.length,true);
+
+const modal=document.getElementById('modal'),title=document.getElementById('modalTitle'),text=document.getElementById('modalText');
+const letters={tired:['For the tired days','You do not have to solve everything tonight. Drink some water. Put your shoulders down. Take one quiet breath, then another. Being tired does not make you weak.'],sad:['For the sad days',"You never have to pretend that everything is beautiful when it is not. Let yourself feel, make du'a, talk to someone you trust, and remember that a difficult moment is not the whole story."],alone:['For the lonely moments','If the world feels far away, remember that your presence has value beyond what you accomplish. You deserve kindness, patience, and people who listen.']};
+document.querySelectorAll('.memory button').forEach(n=>n.onclick=()=>{let x=letters[n.dataset.key];title.textContent=x[0];text.textContent=x[1];modal.classList.add('open');burst(12)});
+document.getElementById('secretBtn').onclick=()=>{title.textContent='Rahma…';text.textContent='May Allah write goodness for you, protect your heart, and make what is ahead peaceful and beautiful. And whenever you return to this little universe, let it remind you to breathe.';modal.classList.add('open');burst(25)};
+document.getElementById('close').onclick=()=>modal.classList.remove('open');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};
+
+function heart(x=Math.random()*100){const h=document.createElement('span');h.className='heart';h.textContent=Math.random()>.25?'♥':'♡';h.style.left=x+'%';h.style.setProperty('--x',(Math.random()*160-80)+'px');h.style.setProperty('--d',(5+Math.random()*6)+'s');h.style.fontSize=(10+Math.random()*18)+'px';document.getElementById('hearts').appendChild(h);setTimeout(()=>h.remove(),12000)}
+function startHearts(n=5){for(let i=0;i<n;i++)setTimeout(()=>heart(),i*250)}
+function burst(n=15){for(let i=0;i<n;i++)setTimeout(()=>heart(45+Math.random()*10),i*45)}
+document.getElementById('tapHeart').onclick=()=>burst(18);
+
+const sections=[...document.querySelectorAll('#app section')],prog=document.getElementById('progress');
+sections.forEach((s,i)=>{let d=document.createElement('div');d.className='dot';d.title='Scene '+(i+1);d.onclick=()=>s.scrollIntoView({behavior:'smooth'});prog.appendChild(d)});
+const dots=[...prog.children];
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.reveal').forEach(x=>x.classList.add('show'));dots[sections.indexOf(e.target)]?.classList.add('active');dots.forEach((d,i)=>{if(i!==sections.indexOf(e.target))d.classList.remove('active')});if(e.target.classList.contains('scene-photo'))burst(3)}}),{threshold:.25});
+sections.forEach(s=>obs.observe(s));
+document.addEventListener('click',e=>{if(e.target.closest('button,.music,.progress,.modal,.lock'))return;if(document.body.classList.contains('ready')&&Math.random()>.45){heart((e.clientX/innerWidth)*100)}});
+</script>
+</body>
+</html>
