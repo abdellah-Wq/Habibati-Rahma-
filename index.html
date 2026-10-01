@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050507">
+<meta name="description" content="Rahma — a private cinematic story of memories, wishes and prayers.">
+<title>Rahma — The Story</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="grain"></div><div id="vignette"></div><div id="hearts" aria-hidden="true"></div><div id="stars" aria-hidden="true"></div>
+
+<!-- ENTRY -->
+<section id="gate" class="gate">
+  <div class="gate-orbit"></div>
+  <div class="gate-card">
+    <div class="crest">♥</div>
+    <span class="eyebrow">A private cinematic experience</span>
+    <h1>Rahma</h1>
+    <p class="gate-copy">A small world made from memories, quiet words, beautiful wishes and prayers. Open it slowly.</p>
+    <div class="code-row">
+      <input id="code" type="password" inputmode="numeric" maxlength="4" placeholder="••••" aria-label="Secret code">
+      <button id="enter" class="button primary">Enter</button>
+    </div>
+    <div id="code-hint" class="hint">Four digits · take your time</div>
+  </div>
+</section>
+
+<main id="experience" hidden>
+  <header class="topbar">
+    <div class="brand"><span>R</span><small>THE STORY</small></div>
+    <div class="top-actions">
+      <button class="icon-button" id="modeButton" aria-label="Choose visual mode">◐</button>
+      <button class="icon-button" id="letterButton" aria-label="Open secret letter">✉</button>
+      <button class="icon-button" id="soundButton" aria-label="Open music player">♫</button>
+    </div>
+  </header>
+
+  <aside class="chapter-rail" id="chapterRail" aria-label="Chapters"></aside>
+
+  <section class="chapter hero" data-title="The beginning">
+    <div class="hero-aura"></div>
+    <div class="chapter-inner center reveal">
+      <span class="eyebrow">Chapter 01 · The beginning</span>
+      <h2>For <i>Rahma.</i></h2>
+      <p class="lead">Some stories are not written in a single day. They are made from little moments, quiet smiles, unexpected memories, and the hope that tomorrow will be gentle.</p>
+      <div class="action-row">
+        <button class="button" data-scroll="1">Begin the story ↓</button>
+        <button class="button ghost" data-hearts="24">Send a little love ♥</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter" data-title="A smile">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 02 · A smile</span><span class="counter">01 / 11</span></div>
+      <figure class="memory-frame landscape"><img src="assets/rahma-01.jpg" alt="Rahma smiling" loading="lazy"></figure>
+      <div class="memory-copy"><h3>Some smiles make a room feel warmer.</h3><p>May you always have reasons to smile that are deeper than a photograph — reasons that stay with you when the picture is gone.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter alt" data-title="A quiet moment">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 03 · A quiet moment</span><span class="counter">02 / 11</span></div>
+      <figure class="memory-frame portrait"><img src="assets/rahma-02.jpg" alt="Rahma in a quiet moment" loading="lazy"></figure>
+      <div class="memory-copy"><h3>May peace find you before you have to ask for it.</h3><p>For the days when your thoughts become too loud: may you find a corner of calm, a gentle breath, and the strength to leave tomorrow for tomorrow.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter" data-title="A gentle light">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 04 · A gentle light</span><span class="counter">03 / 11</span></div>
+      <figure class="memory-frame portrait tall"><img src="assets/rahma-03.jpg" alt="Rahma smiling in a light scarf" loading="lazy"></figure>
+      <div class="memory-copy"><h3>There is beauty in gentleness.</h3><p>May your kindness never become something you feel you have to hide. May it be protected, respected, and returned to you in ways you never expected.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter alt" data-title="A different side">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 05 · A different side</span><span class="counter">04 / 11</span></div>
+      <figure class="memory-frame landscape"><img src="assets/rahma-04.jpg" alt="Rahma wearing glasses" loading="lazy"></figure>
+      <div class="memory-copy"><h3>Keep the little version of yourself that knows how to play.</h3><p>Life can be serious enough. May you always keep room for laughter, silly moments, unexpected jokes, and the freedom to simply be yourself.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter" data-title="A playful moment">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 06 · A playful moment</span><span class="counter">05 / 11</span></div>
+      <figure class="memory-frame portrait"><img src="assets/rahma-05.jpg" alt="Rahma smiling playfully" loading="lazy"></figure>
+      <div class="memory-copy"><h3>May your laughter remain yours.</h3><p>Not every beautiful moment needs a grand explanation. Some are precious simply because they made you laugh.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter alt" data-title="A familiar smile">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 07 · A familiar smile</span><span class="counter">06 / 11</span></div>
+      <figure class="memory-frame portrait tall"><img src="assets/rahma-06.jpg" alt="Rahma smiling" loading="lazy"></figure>
+      <div class="memory-copy"><h3>May good days become ordinary for you.</h3><p>May you wake up without fear, learn without pressure, laugh without pretending, and sleep with a heart that feels safe.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter" data-title="A quiet gaze">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 08 · A quiet gaze</span><span class="counter">07 / 11</span></div>
+      <figure class="memory-frame portrait"><img src="assets/rahma-07.jpg" alt="Rahma portrait" loading="lazy"></figure>
+      <div class="memory-copy"><h3>Some moments say nothing — and still say enough.</h3><p>May you never underestimate the value of the quiet parts of your life: rest, reflection, learning, prayer, and simply breathing.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter alt" data-title="A bright memory">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 09 · A bright memory</span><span class="counter">08 / 11</span></div>
+      <figure class="memory-frame landscape"><img src="assets/rahma-08.jpg" alt="Rahma smiling in a floral headscarf" loading="lazy"></figure>
+      <div class="memory-copy"><h3>May your future hold more light than you can imagine.</h3><p>May every new chapter bring knowledge, dignity, sincere companionship, and opportunities that make you grateful you kept going.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter" data-title="A playful collection">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 10 · A playful collection</span><span class="counter">09 / 11</span></div>
+      <figure class="memory-frame landscape collage"><img src="assets/rahma-09.jpg" alt="Rahma in a collection of playful portraits" loading="lazy"></figure>
+      <div class="memory-copy"><h3>Keep making memories worth keeping.</h3><p>One day, the small photographs become the large memories. Keep the moments that make your heart feel alive.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter alt" data-title="A soft morning">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 11 · A soft morning</span><span class="counter">10 / 11</span></div>
+      <figure class="memory-frame portrait"><img src="assets/rahma-10.jpg" alt="Rahma portrait" loading="lazy"></figure>
+      <div class="memory-copy"><h3>May Allah make your path clear.</h3><p>May knowledge benefit you, may your efforts be accepted, and may every step you take bring you closer to what is good for you.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter photo-chapter" data-title="The last memory">
+    <div class="chapter-inner photo-layout reveal">
+      <div class="photo-meta"><span class="eyebrow">Chapter 12 · The last memory</span><span class="counter">11 / 11</span></div>
+      <figure class="memory-frame portrait tall"><img src="assets/rahma-11.jpg" alt="Rahma smiling" loading="lazy"></figure>
+      <div class="memory-copy"><h3>And may there always be another reason to smile.</h3><p>This is only a page, not the whole story. The best parts of life are still unwritten.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter wish-chapter" data-title="Three wishes">
+    <div class="chapter-inner center reveal">
+      <span class="eyebrow">Chapter 13 · Wishes</span><h3 class="display">Choose a little prayer.</h3>
+      <div class="wish-grid">
+        <button class="wish-card" data-wish="peace"><span>01</span><b>For your peace</b><small>Open a prayer for calm.</small></button>
+        <button class="wish-card" data-wish="knowledge"><span>02</span><b>For your path</b><small>Open a prayer for learning.</small></button>
+        <button class="wish-card" data-wish="future"><span>03</span><b>For your future</b><small>Open a prayer for what is ahead.</small></button>
+      </div>
+      <button class="button ghost" data-breathe>Take a ten-second pause</button>
+    </div>
+  </section>
+
+  <section class="chapter night" data-title="A night prayer">
+    <div class="moon"></div>
+    <div class="chapter-inner center reveal">
+      <span class="eyebrow">Chapter 14 · A night prayer</span>
+      <div class="quote">“May the nights you spend overthinking become fewer, and the mornings you wake up grateful become many.”</div>
+      <p class="lead small">May Allah guard your heart, ease what you cannot explain, increase you in beneficial knowledge, protect your family, and guide you toward every door that contains goodness.</p>
+      <button class="button" data-hearts="45">Let the sky carry a little love ♥</button>
+    </div>
+  </section>
+
+  <section class="chapter letter-chapter" data-title="A letter">
+    <div class="chapter-inner center reveal">
+      <span class="eyebrow">Chapter 15 · A letter</span>
+      <h3 class="display">There is something I wanted you to know.</h3>
+      <p class="lead small">Not everything meaningful needs a perfect sentence. Sometimes the most honest thing is simply this: I hope life is gentle with you, I hope you never forget your worth, and I hope Allah writes beautiful things for you in places you cannot yet see.</p>
+      <button class="button primary" id="openLetter">Open the private letter</button>
+    </div>
+  </section>
+
+  <section class="chapter final" data-title="The last page">
+    <div class="chapter-inner center reveal">
+      <span class="eyebrow">Chapter 16 · The last page</span>
+      <h3 class="display">May what is written for you be beautiful.</h3>
+      <p class="lead small">May Allah place sakinah in your heart, barakah in your time, light in your decisions, mercy in your home, and goodness in the people who surround you. May He protect you from what is harmful, guide you toward what is beneficial, and make your future better than your fears.</p>
+      <div class="final-line">Ameen. ♥</div>
+      <div class="action-row"><button class="button primary" id="replay">Replay the story</button><button class="button ghost" data-hearts="80">Heart rain ♥</button></div>
+    </div>
+  </section>
+
+  <section class="filmstrip" data-title="Every memory">
+    <div class="filmstrip-inner">
+      <span class="eyebrow">The memories</span><h3>Eleven little moments.</h3>
+      <div class="thumb-grid">
+        <button class="thumb" data-go="1"><img src="assets/rahma-01.jpg" alt="Memory 01"><span>01</span></button>
+        <button class="thumb" data-go="2"><img src="assets/rahma-02.jpg" alt="Memory 02"><span>02</span></button>
+        <button class="thumb" data-go="3"><img src="assets/rahma-03.jpg" alt="Memory 03"><span>03</span></button>
+        <button class="thumb" data-go="4"><img src="assets/rahma-04.jpg" alt="Memory 04"><span>04</span></button>
+        <button class="thumb" data-go="5"><img src="assets/rahma-05.jpg" alt="Memory 05"><span>05</span></button>
+        <button class="thumb" data-go="6"><img src="assets/rahma-06.jpg" alt="Memory 06"><span>06</span></button>
+        <button class="thumb" data-go="7"><img src="assets/rahma-07.jpg" alt="Memory 07"><span>07</span></button>
+        <button class="thumb" data-go="8"><img src="assets/rahma-08.jpg" alt="Memory 08"><span>08</span></button>
+        <button class="thumb" data-go="9"><img src="assets/rahma-09.jpg" alt="Memory 09"><span>09</span></button>
+        <button class="thumb" data-go="10"><img src="assets/rahma-10.jpg" alt="Memory 10"><span>10</span></button>
+        <button class="thumb" data-go="11"><img src="assets/rahma-11.jpg" alt="Memory 11"><span>11</span></button>
+      </div>
+      <p class="tiny">Tap any memory to return to its chapter.</p>
+    </div>
+  </section>
+</main>
+
+<!-- MUSIC -->
+<section id="musicPanel" class="drawer" aria-hidden="true">
+  <div class="drawer-head"><div><span class="eyebrow">Soundtrack</span><h4>Music for the story</h4></div><button class="icon-button" data-close="musicPanel">×</button></div>
+  <div class="player-card">
+    <div class="disc"><span>♥</span></div>
+    <div class="track-info"><b id="trackTitle">Arousat Al Noor</b><small id="trackStatus">Ready</small></div>
+    <div class="player-controls"><button id="prevTrack">⏮</button><button id="playTrack" class="play-main">▶</button><button id="nextTrack">⏭</button></div>
+    <div class="range-line"><span id="timeNow">0:00</span><input id="seek" type="range" min="0" max="100" value="0"><span id="timeTotal">0:00</span></div>
+    <div class="volume-line"><span>Volume</span><input id="volume" type="range" min="0" max="1" step="0.01" value="0.72"><button id="muteTrack">🔊</button></div>
+  </div>
+  <div class="track-list"><button data-track="0"><span>01</span>Arousat Al Noor</button><button data-track="1"><span>02</span>Zawjati</button></div>
+  <p class="tiny">Music begins after you choose to play it. Your browser may block automatic audio until interaction.</p>
+</section>
+
+<!-- MODE -->
+<section id="modePanel" class="drawer" aria-hidden="true">
+  <div class="drawer-head"><div><span class="eyebrow">Director mode</span><h4>Choose the atmosphere</h4></div><button class="icon-button" data-close="modePanel">×</button></div>
+  <div class="mode-list">
+    <button data-mode="cinematic"><b>🎬 Cinematic</b><small>Deep contrast, slow movement and dramatic transitions.</small></button>
+    <button data-mode="peaceful"><b>🌙 Peaceful</b><small>Soft glow, calmer motion and a quieter atmosphere.</small></button>
+    <button data-mode="romantic"><b>♥ Romantic</b><small>Warmer glow, brighter hearts and a little more magic.</small></button>
+  </div>
+</section>
+
+<div id="drawerBackdrop"></div>
+<button id="heartButton" class="heart-fab" aria-label="Release hearts">♥</button>
+<audio id="audio" preload="metadata"></audio>
+
+<!-- MODAL -->
+<section id="modal" class="modal" aria-hidden="true"><div class="modal-card"><button class="modal-close" id="modalClose">×</button><span id="modalEyebrow" class="eyebrow">A little prayer</span><h3 id="modalTitle"></h3><p id="modalText"></p><button id="modalHeart" class="button">Send hearts ♥</button></div></section>
+
+<!-- SECRET LETTER -->
+<section id="letter" class="letter-overlay" aria-hidden="true"><div class="letter-paper"><button class="modal-close" id="letterClose">×</button><span class="eyebrow">A private letter</span><div class="letter-seal">♥</div><h3>Dear Rahma,</h3><p>Some people become important quietly. Not because of grand moments, but because of the small things: a conversation, a laugh, a kind word, a moment remembered long after it happened.</p><p>I hope you never forget that your worth is not measured by how productive you are, how quickly you reply, how perfect you feel, or how well you carry every difficulty. You are allowed to rest. You are allowed to grow slowly. You are allowed to become.</p><p>And above all, I pray that Allah guides your path with wisdom and mercy. May He protect your heart, bless your learning, surround you with people who treat you gently, and write for you a future filled with halal happiness, peace and barakah.</p><p class="letter-sign">May your next chapter be beautiful.<br><i>With sincere good wishes ♥</i></p></div></section>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
